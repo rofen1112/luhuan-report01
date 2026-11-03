@@ -1,0 +1,28 @@
+name: Validate skill package
+
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    strategy:
+      matrix:
+        os: [ubuntu-latest, windows-latest]
+        python: ['3.10', '3.13']
+    runs-on: ${{ matrix.os }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python }}
+      - name: Test isolated installation and deterministic packages
+        run: python -m unittest discover -s tests -v
+      - name: Validate installation plan without installing globally
+        run: python install.py --dry-run --dest "${{ runner.temp }}/luhuan-skills"
+      - name: Build release payloads
+        run: python scripts/package_release.py

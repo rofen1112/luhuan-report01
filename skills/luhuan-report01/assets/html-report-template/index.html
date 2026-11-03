@@ -1,0 +1,230 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="{{META_DESCRIPTION}}">
+  <title>{{PROJECT_NAME}}｜项目评测报告</title>
+  <link rel="stylesheet" href="assets/report.css">
+</head>
+<body>
+  <div class="reading-progress" aria-hidden="true"></div>
+
+  <header class="topbar">
+    <div class="brand">
+      <span class="brand-mark">评</span>
+      <div>
+        <div class="brand-name">{{PROJECT_NAME}} × 暗壳 AI</div>
+        <div class="brand-sub">独立技术与合作价值分析</div>
+      </div>
+    </div>
+    <div class="toolbar">
+      <button class="action" id="copy-summary" type="button">复制结论</button>
+      <button class="action" id="print-report" type="button">打印 / PDF</button>
+    </div>
+  </header>
+
+  <section class="hero">
+    <div class="hero-inner">
+      <p class="eyebrow">TECHNICAL DILIGENCE · STRATEGY · {{REPORT_DATE}}</p>
+      <h1>{{REPORT_TITLE}}</h1>
+      <p class="hero-deck">{{REPORT_SUBTITLE}}</p>
+      <div class="hero-meta">
+        <span><strong>研究对象</strong><br>{{PROJECT_NAME}}</span>
+        <span><strong>关联平台</strong><br>暗壳 AI / Ark</span>
+        <span><strong>证据范围</strong><br>{{EVIDENCE_SCOPE}}</span>
+        <span><strong>报告性质</strong><br>{{REPORT_CLASSIFICATION}}</span>
+      </div>
+    </div>
+  </section>
+
+  <div class="verdict-band">
+    <div class="verdict-inner">
+      <div class="verdict-label">一句话判断</div>
+      <div class="verdict-text">{{ONE_SENTENCE_VERDICT}}</div>
+    </div>
+  </div>
+
+  <main class="layout">
+    <aside class="rail" aria-label="报告目录">
+      <div class="toc-title">目录</div>
+      <nav class="toc">
+        <a href="#executive">01 先给结论</a>
+        <a href="#open-source">02 公开内容盘点</a>
+        <a href="#classification">03 技术本质</a>
+        <a href="#problems">04 解决与不能解决</a>
+        <a href="#local-test">05 部署与案例实测</a>
+        <a href="#industry-value">06 行业价值</a>
+        <a href="#physical-ai">07 Physical AI 定位</a>
+        <a href="#ark">08 暗壳 AI 基础</a>
+        <a href="#data">09 传统业务数据</a>
+        <a href="#collaboration">10 合作方式</a>
+        <a href="#roadmap">11 验证路线图</a>
+        <a href="#risks">12 风险与边界</a>
+        <a href="#decision">13 最终建议</a>
+        <a href="#sources">14 来源与方法</a>
+      </nav>
+    </aside>
+
+    <article class="report">
+      <section class="section" id="executive">
+        <span class="section-number">01</span>
+        <h2>先给结论：{{EXECUTIVE_HEADLINE}}</h2>
+        <p class="section-lead">{{EXECUTIVE_LEAD}}</p>
+        <div class="evidence-legend" aria-label="证据类型">
+          <span class="evidence official">官方事实</span>
+          <span class="evidence local">本地实测</span>
+          <span class="evidence research">第三方研究</span>
+          <span class="evidence inference">分析推断</span>
+        </div>
+        <div class="answer-grid">
+          <div class="answer-card"><span class="index">01</span><h3>技术本质</h3><p>{{EXEC_TECH}}</p></div>
+          <div class="answer-card"><span class="index">02</span><h3>核心能力</h3><p>{{EXEC_CAPABILITY}}</p></div>
+          <div class="answer-card"><span class="index">03</span><h3>业务价值</h3><p>{{EXEC_VALUE}}</p></div>
+          <div class="answer-card"><span class="index">04</span><h3>战略定位</h3><p>{{EXEC_POSITION}}</p></div>
+        </div>
+        <div class="callout success"><strong>推荐验证命题</strong>{{RECOMMENDED_HYPOTHESIS}}</div>
+      </section>
+
+      <section class="section" id="open-source">
+        <span class="section-number">02</span>
+        <h2>公开内容里到底有什么</h2>
+        <p class="section-lead">{{OPEN_SOURCE_LEAD}}</p>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>模块</th><th>来源/许可</th><th>作用</th><th>复现状态</th></tr></thead>
+            <tbody>{{OPEN_SOURCE_ROWS}}</tbody>
+          </table>
+        </div>
+        {{OPEN_SOURCE_BODY}}
+      </section>
+
+      <section class="section" id="classification">
+        <span class="section-number">03</span>
+        <h2>它到底是工程化，还是新模型</h2>
+        <p class="section-lead">{{CLASSIFICATION_LEAD}}</p>
+        <div class="split">
+          <div class="panel"><span class="kicker">当前公开能力</span><h3>{{PUBLIC_CLASSIFICATION}}</h3><p>{{PUBLIC_CLASSIFICATION_REASON}}</p></div>
+          <div class="panel"><span class="kicker">未公开/未来主张</span><h3>{{FUTURE_CLASSIFICATION}}</h3><p>{{FUTURE_CLASSIFICATION_REASON}}</p></div>
+        </div>
+        {{CLASSIFICATION_BODY}}
+      </section>
+
+      <section class="section" id="problems">
+        <span class="section-number">04</span>
+        <h2>它真正能解决什么，不能解决什么</h2>
+        <p class="section-lead">{{PROBLEM_LEAD}}</p>
+        <div class="split">
+          <div class="panel"><span class="kicker">现在可验证</span><h3>有效能力</h3>{{SOLVES_LIST}}</div>
+          <div class="panel"><span class="kicker">边界</span><h3>不能直接承诺</h3>{{DOES_NOT_SOLVE_LIST}}</div>
+        </div>
+      </section>
+
+      <section class="section" id="local-test">
+        <span class="section-number">05</span>
+        <h2>部署与本地/云端案例实测</h2>
+        <p class="section-lead">{{TEST_LEAD}}</p>
+        {{TEST_ENVIRONMENT}}
+        {{TEST_GALLERY}}
+        <div class="callout"><strong>这组结果证明了什么</strong>{{TEST_PROVES}}</div>
+        <div class="callout warning"><strong>没有证明什么</strong>{{TEST_DOES_NOT_PROVE}}</div>
+      </section>
+
+      <section class="section" id="industry-value">
+        <span class="section-number">06</span>
+        <h2>对目标行业真正有效的帮助</h2>
+        <p class="section-lead">{{INDUSTRY_LEAD}}</p>
+        <div class="stack">{{INDUSTRY_VALUE_ROWS}}</div>
+        {{INDUSTRY_BODY}}
+      </section>
+
+      <section class="section" id="physical-ai">
+        <span class="section-number">07</span>
+        <h2>它算得上 Physical AI 吗</h2>
+        <p class="section-lead">{{PHYSICAL_AI_LEAD}}</p>
+        {{PHYSICAL_AI_BODY}}
+        <div class="callout"><strong>更准确的定位</strong>{{PHYSICAL_AI_POSITION}}</div>
+      </section>
+
+      <section class="section" id="ark">
+        <span class="section-number">08</span>
+        <h2>暗壳 AI 已有的基础，为什么适合承接</h2>
+        <p class="section-lead">{{ARK_LEAD}}</p>
+        <div class="split">
+          <div class="panel"><span class="kicker">已核验能力</span><h3>Agent、工作流与专业技能</h3><p>{{ARK_PRODUCT}}</p></div>
+          <div class="panel"><span class="kicker">数据与行业基础</span><h3>项目 Know-how 与反馈环境</h3><p>{{ARK_DATA}}</p></div>
+        </div>
+        {{ARK_BODY}}
+      </section>
+
+      <section class="section" id="data">
+        <span class="section-number">09</span>
+        <h2>传统业务数据如何加持</h2>
+        <p class="section-lead">{{DATA_LEAD}}</p>
+        <div class="data-flow">
+          <div class="data-col"><h3>数据输入</h3>{{DATA_INPUTS}}</div>
+          <div class="data-col center"><h3>联合能力层</h3>{{JOINT_CAPABILITIES}}</div>
+          <div class="data-col"><h3>业务结果</h3>{{BUSINESS_OUTPUTS}}</div>
+        </div>
+      </section>
+
+      <section class="section" id="collaboration">
+        <span class="section-number">10</span>
+        <h2>暗壳 AI 与项目的合作方式</h2>
+        <p class="section-lead">{{COLLABORATION_LEAD}}</p>
+        <div class="value-map">
+          <div class="value-side"><span class="kicker">项目 → 暗壳</span><h3>带来的能力</h3>{{PROJECT_TO_ARK}}</div>
+          <div class="value-bridge" aria-label="双向合作"></div>
+          <div class="value-side"><span class="kicker">暗壳 → 项目</span><h3>带来的壁垒</h3>{{ARK_TO_PROJECT}}</div>
+        </div>
+        <div class="answer-grid">{{JOINT_PRODUCT_CARDS}}</div>
+      </section>
+
+      <section class="section" id="roadmap">
+        <span class="section-number">11</span>
+        <h2>合作验证路线：先证明可用，再谈平台化</h2>
+        <p class="section-lead">{{ROADMAP_LEAD}}</p>
+        <div class="timeline">{{ROADMAP_PHASES}}</div>
+      </section>
+
+      <section class="section" id="risks">
+        <span class="section-number">12</span>
+        <h2>必须提前处理的风险与边界</h2>
+        <p class="section-lead">{{RISK_LEAD}}</p>
+        <div class="risk-grid">{{RISK_CARDS}}</div>
+      </section>
+
+      <section class="section" id="decision">
+        <span class="section-number">13</span>
+        <h2>最终建议</h2>
+        <p class="section-lead">{{DECISION_LEAD}}</p>
+        <div class="decision">
+          <h3>{{DECISION_TITLE}}</h3>
+          <p id="copy-target">{{DECISION_SUMMARY}}</p>
+          <div class="decision-grid">
+            <div class="decision-item"><strong>现在做</strong><span>{{DO_NOW}}</span></div>
+            <div class="decision-item"><strong>验证后做</strong><span>{{DO_AFTER_VALIDATION}}</span></div>
+            <div class="decision-item"><strong>暂不承诺</strong><span>{{DO_NOT_PROMISE}}</span></div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="sources">
+        <span class="section-number">14</span>
+        <h2>资料来源与方法说明</h2>
+        <p class="section-lead">证据截止日期：{{EVIDENCE_CUTOFF}}</p>
+        <ol class="source-list">{{SOURCE_ITEMS}}</ol>
+        <h3>方法与限制</h3>
+        <p>{{METHOD_AND_LIMITATIONS}}</p>
+      </section>
+    </article>
+  </main>
+
+  <footer class="footnote">
+    <strong>{{PROJECT_NAME}} × 暗壳 AI 项目评测报告</strong><br>
+    版本 {{REPORT_VERSION}} · {{REPORT_DATE}} · {{SHARING_NOTICE}}
+  </footer>
+
+  <script src="assets/report.js"></script>
+</body>
+</html>

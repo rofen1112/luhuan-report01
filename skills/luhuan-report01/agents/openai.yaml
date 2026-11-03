@@ -1,0 +1,4 @@
+interface:
+  display_name: "陆欢项目评测报告"
+  short_description: "生成证据驱动的项目技术评测、实测结论与暗壳 AI 合作价值报告"
+  default_prompt: "使用 $luhuan-report01 对这个项目进行证据驱动的完整评测，并生成可核查的 HTML 报告与单文件交付。"

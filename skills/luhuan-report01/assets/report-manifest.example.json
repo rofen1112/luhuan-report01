@@ -1,0 +1,35 @@
+{
+  "report_id": "{{PROJECT_SLUG}}-{{YYYYMMDD}}",
+  "title": "{{REPORT_TITLE}}",
+  "project": "{{PROJECT_NAME}}",
+  "version": "2607.1",
+  "report_date": "{{YYYY-MM-DD}}",
+  "evidence_cutoff": "{{YYYY-MM-DD}}",
+  "classification": "engineering-pipeline|new-model|product-platform|mixed|unverified",
+  "verdict": "{{ONE_SENTENCE_VERDICT}}",
+  "ark_relevance": "high|medium|low|none",
+  "status": "draft|validated|published|archived",
+  "entry_url": null,
+  "artifact_url": null,
+  "sha256": null,
+  "visibility": "internal|restricted|public",
+  "expires_at": null,
+  "created_by": null,
+  "approved_by": null,
+  "tags": [],
+  "test_summary": {
+    "environment": null,
+    "cases": 0,
+    "passed": 0,
+    "failed": 0,
+    "duration_seconds": null
+  },
+  "deliverables": {
+    "html_folder": null,
+    "single_html": null,
+    "zip": null,
+    "pdf": null,
+    "preview_desktop": null,
+    "preview_mobile": null
+  }
+}
